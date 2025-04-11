@@ -2,8 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
+  const { isDarkMode, toggleDarkMode } = props;
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav
+      className={`navbar navbar-expand-lg ${
+        isDarkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"
+      }`}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -35,19 +40,14 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
-
-          {/* Right-aligned search bar
-          <form className="d-flex ms-auto" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
+          <div className="d-flex">
+            <button
+              className="btn btn-outline-primary"
+              onClick={toggleDarkMode}
+            >
+              {isDarkMode ? "Disable Dark Mode" : "Enable Dark Mode"}
             </button>
-          </form> */}
+          </div>
         </div>
       </div>
     </nav>

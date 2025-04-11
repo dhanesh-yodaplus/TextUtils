@@ -15,15 +15,15 @@ export default function Textform(prop) {
 
   const handleOnTitleClick = () => {
     console.log("Title case button was clicked");
-  
+
     let newText = text
       .toLowerCase()
       .split(" ")
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
-  
+
     settext(newText);
-  };  
+  };
 
   const handleOnClearClick = () => {
     console.log("Text was cleared");
@@ -43,7 +43,9 @@ export default function Textform(prop) {
           <h2>{prop.heading}</h2>
           <div className="mb-3">
             <textarea
-              className="form-control"
+              className={`form-control ${
+                prop.isDarkMode ? "bg-dark text-light" : "bg-light text-dark"
+              }`}
               id="myBox"
               rows="8"
               value={text}
@@ -52,13 +54,19 @@ export default function Textform(prop) {
             <button className="btn btn-primary" onClick={handleOnUpperClick}>
               Convert to Uppercase
             </button>
-            <button className="btn btn-primary mx-3" onClick={handleOnLowerClick}>
+            <button
+              className="btn btn-primary mx-3"
+              onClick={handleOnLowerClick}
+            >
               Convert to Lowercase
             </button>
             <button className="btn btn-primary mx" onClick={handleOnTitleClick}>
               Convert to Titlecase
             </button>
-            <button className="btn btn-primary mx-3" onClick={handleOnClearClick}>
+            <button
+              className="btn btn-primary mx-3"
+              onClick={handleOnClearClick}
+            >
               Clear Text
             </button>
           </div>
@@ -67,7 +75,9 @@ export default function Textform(prop) {
 
       <div className="container my-3">
         <h3>Your Text Summary</h3>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <p>
+          {text.split(" ").length} words and {text.length} characters
+        </p>
       </div>
     </>
   );
