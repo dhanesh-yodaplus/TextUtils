@@ -36,7 +36,7 @@ export default function Navbar(props) {
             </li>
           </ul>
 
-          {/* Right-aligned search bar */}
+          {/* Right-aligned search bar
           <form className="d-flex ms-auto" role="search">
             <input
               className="form-control me-2"
@@ -47,7 +47,7 @@ export default function Navbar(props) {
             <button className="btn btn-outline-success" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
     </nav>
